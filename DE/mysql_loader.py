@@ -21,7 +21,7 @@ food_table = 'food'
 cursor.execute(
     f'''
     CREATE TABLE IF NOT EXISTS {food_table} (
-        id INT AUTO_INCREMENT PRIMARY KEY,
+        id INT PRIMARY KEY,
         food_name VARCHAR(50),
         serving_size VARCHAR(50),
         calories INT,
@@ -29,21 +29,22 @@ cursor.execute(
         sugar FLOAT,
         protein FLOAT,
         fiber FLOAT,
-        img_url VARCHAR(255)
+        image_url VARCHAR(255)
     )
     '''
 )
 
-cursor.execute(f'TRUNCATE TABLE {food_table}')
-
-for _, row in df.iterrows():
-    cursor.execute(
-        f'''
-        INSERT INTO {food_table} (food_name, serving_size, calories, fat, sugar, protein, fiber, img_url) VALUES
-        ("{row['food_name']}", "{row['serving_size']}", {row['calories']}, 
-        {row['fat']}, {row['sugar']}, {row['protein']}, {row['fiber']}, "{row['azure_img_src']}")
-        '''
-    )
+cursor.execute(f"SELECT COUNT(*) FROM {food_table}")
+if cursor.fetchone()[0] == 0:
+    for i, row in df.iterrows():
+        cursor.execute(
+            f'''
+            INSERT INTO {food_table} (id, food_name, serving_size, calories, fat, sugar, protein, fiber, image_url) VALUES
+            ("{i+3}", "{row['food_name']}", "{row['serving_size']}", {row['calories']}, 
+            {row['fat']}, {row['sugar']}, {row['protein']}, {row['fiber']}, "{row['azure_img_src']}")
+            '''
+        )
+        print(f'Insert {i + 1} rows')
 
 conn.commit()
 cursor.close()
