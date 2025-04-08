@@ -30,7 +30,5 @@ services:
     build: ./DE
     depends_on:
       - mysql
-    restart: "no"
-    volumes:
-      - ./DE/food_data.csv:/app/food_data.csv
-
+    env_file:
+      - ./DE/.env
