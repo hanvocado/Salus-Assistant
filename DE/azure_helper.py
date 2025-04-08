@@ -1,7 +1,9 @@
 from azure.identity import ClientSecretCredential
 from azure.storage.blob import BlobServiceClient
-import requests, io, os, time
+import requests, os, time
 from dotenv import load_dotenv
+import pandas as pd
+from io import StringIO
 
 load_dotenv()
 
@@ -10,7 +12,6 @@ client_id = os.getenv('AZURE_CLIENT_ID')
 tenant_id = os.getenv('AZURE_TENANT_ID')
 client_secret = os.getenv('AZURE_CLIENT_SECRET')
 account_url = os.getenv('AZURE_STORAGE_URL')
-container_name = 'vietnamese-food-images'
 token_credential = ClientSecretCredential(
     client_id=client_id,
     tenant_id=tenant_id,
@@ -21,13 +22,15 @@ blob_service_client = BlobServiceClient(
     account_url=account_url,
     credential=token_credential)
 
-container_client = blob_service_client.get_container_client(container=container_name)
-try:
-    container_client.create_container()
-except Exception:
-    pass
 
 def upload_img_by_url(image_name, image_url):
+    container_name = 'vietnamese-food-images'
+    container_client = blob_service_client.get_container_client(container=container_name)   
+    try:
+        container_client.create_container()
+    except Exception:
+        pass
+
     azure_src = None
     for i in range(3):
         try:
@@ -41,3 +44,13 @@ def upload_img_by_url(image_name, image_url):
             time.sleep(2)
 
     return azure_src
+
+def get_csv_df(container_name, blob_name):
+    blob_client = blob_service_client.get_blob_client(container=container_name, blob=blob_name)
+    downloaded_blob = blob_client.download_blob()
+    blob_bytes = downloaded_blob.readall()
+    csv_content = blob_bytes.decode("utf-8")
+    print('Decoded bytes into string successfully.')
+    
+    # Turns the string into a "virtual file" for pd to read it
+    return pd.read_csv(StringIO(csv_content))
