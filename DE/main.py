@@ -2,10 +2,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
-import time, os
+from selenium.common.exceptions import NoSuchElementException
+import time, os, re
 from azure_helper import upload_img_by_url
 from dotenv import load_dotenv
-import pandas as pd
+import pandas as pd 
 
 load_dotenv()
 azure_url = os.getenv('AZURE_STORAGE_URL')
@@ -25,14 +26,22 @@ def crawl_img_url(item):
     search_box.send_keys(Keys.RETURN)
     time.sleep(2)
 
-    try:
-        main_images_div = driver.find_element(By.ID, "rcnt")
-        main_images_div.find_element(By.CSS_SELECTOR, "img.YQ4gaf").click()
-        time.sleep(6)
-        url = driver.find_element(By.CSS_SELECTOR, "img.sFlh5c.FyHeAf.iPVvYb").get_attribute("src")
-        return url
-    except Exception as e:
-        print(f"Error find {item} image url: {e}")
+    main_images_div = driver.find_element(By.ID, "rcnt")
+
+    # Sometimes it raise SSL eror so I write code to pass and try another link
+    images_holders = main_images_div.find_elements(By.CSS_SELECTOR, "img.YQ4gaf")
+    url = None
+    for holder in images_holders:
+        try:
+            holder.click() 
+            time.sleep(5)
+            url = driver.find_element(By.CSS_SELECTOR, "img.sFlh5c.FyHeAf.iPVvYb, img.sFlh5c.FyHeAf").get_attribute("src")
+            if url is not None:
+                break
+        except Exception:
+            pass
+
+    return url
 
 def scrape_food_info():
     url = os.getenv('FOOD_NUTRITION_WEBSITE')
@@ -59,13 +68,24 @@ def save_as_csv(list_of_item):
     df = pd.DataFrame(list_of_item)
     df.to_csv('food_data.csv', index=False)
 
+def clean_name(name):
+    name_without_space = name.replace(' ', '_')
+    name_with_word_only = re.sub(r'\W+', '', name_without_space)
+    return name_with_word_only   
+
 if __name__ == "__main__":
     food_list = scrape_food_info()
+    print('Done scrape ')
     for food in food_list:
-        food_name = food['food_name']
-        external_src = crawl_img_url(food_name)
-        image_name = f"{food_name.replace(' ', '_')}.jpg"
-        azure_src = upload_img_by_url(image_name, external_src)
-        food['img_src'] = azure_src
+        attempts = 3
+        external_src = None
+        while (external_src is None and attempts > 0):
+            external_src = crawl_img_url(food['food_name'])
+            attempts -= 1
+
+        food['img_src'] = external_src
+        # TODO: Check null, drop, before upload to azure
+        # image_name = f"{cleaned_name}.jpg"
+        # azure_src = upload_img_by_url(image_name, external_src)
     
     save_as_csv(food_list)
