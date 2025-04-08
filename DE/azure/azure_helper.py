@@ -1,6 +1,6 @@
 from azure.identity import ClientSecretCredential
 from azure.storage.blob import BlobServiceClient
-import requests, os, time
+import requests, io, os, time
 from dotenv import load_dotenv
 import pandas as pd
 from io import StringIO
@@ -51,6 +51,6 @@ def get_csv_df(container_name, blob_name):
     blob_bytes = downloaded_blob.readall()
     csv_content = blob_bytes.decode("utf-8")
     print('Decoded bytes into string successfully.')
-    
+
     # Turns the string into a "virtual file" for pd to read it
     return pd.read_csv(StringIO(csv_content))

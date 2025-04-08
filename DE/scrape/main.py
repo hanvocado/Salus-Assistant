@@ -2,9 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
-from selenium.common.exceptions import NoSuchElementException
 import time, os, re
-from azure_helper import upload_img_by_url
+from azure.azure_helper import upload_img_by_url
 from dotenv import load_dotenv
 import pandas as pd 
 
