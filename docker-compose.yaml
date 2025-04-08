@@ -32,4 +32,10 @@ services:
       - mysql
     volumes:
       - ./DE/food_data.csv:/app/food_data.csv
-
+  ai-model:
+    build: 
+      context: ./SalusAI
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8080"
+  
