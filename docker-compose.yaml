@@ -33,4 +33,4 @@ services:
     depends_on:
       - mysql
     env_file:
-      - ./DE/.env
+      - ./DE/load/.env
