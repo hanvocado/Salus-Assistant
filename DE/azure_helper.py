@@ -1,6 +1,6 @@
 from azure.identity import ClientSecretCredential
 from azure.storage.blob import BlobServiceClient
-import requests, io, os
+import requests, io, os, time
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -28,7 +28,16 @@ except Exception:
     pass
 
 def upload_img_by_url(image_name, image_url):
-    image_data = requests.get(image_url).content
-    container_client.upload_blob(name=image_name, data=io.BytesIO(image_data), overwrite=True)
-    print(f'Upload {image_name}')
-    return f'{account_url}{container_name}/{image_name}'   
+    azure_src = None
+    for i in range(3):
+        try:
+            image_data = requests.get(image_url).content
+            print(f'Start upload {image_name}')
+            container_client.upload_blob(name=image_name, data=io.BytesIO(image_data), overwrite=True)
+            azure_src = f'{account_url}{container_name}/{image_name}' 
+            break 
+        except requests.exceptions.RequestException as e:
+            print(f'Retrying {i + 1} times for {image_name}') 
+            time.sleep(2)
+
+    return azure_src
