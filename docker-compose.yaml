@@ -27,7 +27,9 @@ services:
       - "8085:8080"
 
   food-loader:
-    build: ./DE
+    build:
+      context: ./DE
+      dockerfile: /load/Dockerfile
     depends_on:
       - mysql
     env_file:
