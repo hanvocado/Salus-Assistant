@@ -1,8 +1,12 @@
 FROM python:3.11-slim
+
 WORKDIR /app
 
-RUN pip install pandas mysql-connector-python
+COPY mysql_loader_requirements.txt .
 
-COPY mysql_loader.py mysql_loader.py
+RUN pip install --no-cache-dir -r mysql_loader_requirements.txt
+
+COPY azure_helper.py .
+COPY mysql_loader.py .
 
 CMD ["python", "mysql_loader.py"]
