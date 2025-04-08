@@ -4,3 +4,4 @@ azure-storage-blob==12.19.0
 azure-identity==1.21.0
 python-dotenv==1.1.0
 pandas==2.2.3
+mysql-connector-python==9.2.0
