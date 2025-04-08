@@ -73,9 +73,15 @@ def clean_name(name):
     name_with_word_only = re.sub(r'\W+', '', name_without_space)
     return name_with_word_only   
 
+def upload_to_azure(row):
+    cleaned_name = clean_name(row['food_name'])
+    image_name = f'{cleaned_name}.jpg'
+    azure_src = upload_img_by_url(image_name, row['img_src'])
+    return azure_src
+
 if __name__ == "__main__":
     food_list = scrape_food_info()
-    print('Done scrape ')
+    print('Done scrape food info')
     for food in food_list:
         attempts = 3
         external_src = None
@@ -84,8 +90,7 @@ if __name__ == "__main__":
             attempts -= 1
 
         food['img_src'] = external_src
-        # TODO: Check null, drop, before upload to azure
-        # image_name = f"{cleaned_name}.jpg"
-        # azure_src = upload_img_by_url(image_name, external_src)
-    
-    save_as_csv(food_list)
+
+    food_df = pd.DataFrame(food_list)
+    food_df['azure_img_src'] = food_df.apply(upload_to_azure, axis=1)
+    save_as_csv(food_df)
