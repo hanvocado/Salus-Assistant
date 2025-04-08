@@ -1,0 +1,363 @@
+[
+    {
+      "id": 1,
+      "dish_name": "Grilled Chicken Salad",
+      "coverImage": "book-1.png",
+      "nutrition": {
+        "time_up": "2025-04-05T10:00:00Z",
+        "calories": 350,
+        "total_fat": "12g",
+        "saturated_fat": "3g",
+        "fiber": "4g",
+        "sugar": "6g",
+        "protein": "30g",
+        "potassium": "700mg",
+        "cholesterol": "75mg",
+        "sodium": "450mg",
+        "carbohydrates": "25g"
+      }
+    },
+    {
+      "id": 2,
+      "dish_name": "Beef Pho",
+      "coverImage": "book-2.png",
+      "nutrition": {
+        "time_up": "2025-04-05T10:05:00Z",
+        "calories": 420,
+        "total_fat": "15g",
+        "saturated_fat": "5g",
+        "fiber": "3g",
+        "sugar": "2g",
+        "protein": "28g",
+        "potassium": "550mg",
+        "cholesterol": "80mg",
+        "sodium": "1100mg",
+        "carbohydrates": "40g"
+      }
+    },
+    {
+      "id": 3,
+      "dish_name": "Vegan Buddha Bowl",
+      "coverImage": "book-3.png",
+      "nutrition": {
+        "time_up": "2025-04-05T10:10:00Z",
+        "calories": 390,
+        "total_fat": "10g",
+        "saturated_fat": "1.5g",
+        "fiber": "9g",
+        "sugar": "8g",
+        "protein": "15g",
+        "potassium": "900mg",
+        "cholesterol": "0mg",
+        "sodium": "320mg",
+        "carbohydrates": "55g"
+      }
+    },
+    {
+      "id": 4,
+      "dish_name": "Cheeseburger",
+      "coverImage": "book-4.png",
+      "nutrition": {
+        "time_up": "2025-04-05T10:15:00Z",
+        "calories": 560,
+        "total_fat": "33g",
+        "saturated_fat": "11g",
+        "fiber": "2g",
+        "sugar": "7g",
+        "protein": "26g",
+        "potassium": "400mg",
+        "cholesterol": "95mg",
+        "sodium": "970mg",
+        "carbohydrates": "38g"
+      }
+    },
+    {
+      "id": 5,
+      "dish_name": "Spaghetti Bolognese",
+      "coverImage": "book-5.png",
+      "nutrition": {
+        "time_up": "2025-04-05T10:20:00Z",
+        "calories": 480,
+        "total_fat": "17g",
+        "saturated_fat": "6g",
+        "fiber": "4g",
+        "sugar": "8g",
+        "protein": "22g",
+        "potassium": "620mg",
+        "cholesterol": "55mg",
+        "sodium": "700mg",
+        "carbohydrates": "50g"
+      }
+    },
+    {
+      "id": 6,
+      "dish_name": "Avocado Toast",
+      "coverImage": "book-6.png",
+      "nutrition": {
+        "time_up": "2025-04-05T10:25:00Z",
+        "calories": 300,
+        "total_fat": "18g",
+        "saturated_fat": "3g",
+        "fiber": "7g",
+        "sugar": "2g",
+        "protein": "9g",
+        "potassium": "610mg",
+        "cholesterol": "0mg",
+        "sodium": "290mg",
+        "carbohydrates": "26g"
+      }
+    },
+    {
+      "id": 7,
+      "dish_name": "Fried Rice",
+      "coverImage": "book-7.png",
+      "nutrition": {
+        "time_up": "2025-04-05T10:30:00Z",
+        "calories": 520,
+        "total_fat": "20g",
+        "saturated_fat": "4g",
+        "fiber": "3g",
+        "sugar": "4g",
+        "protein": "16g",
+        "potassium": "450mg",
+        "cholesterol": "65mg",
+        "sodium": "850mg",
+        "carbohydrates": "60g"
+      }
+    },
+    {
+      "id": 8,
+      "dish_name": "Sushi Roll",
+      "coverImage": "book-8.png",
+      "nutrition": {
+        "time_up": "2025-04-05T10:35:00Z",
+        "calories": 280,
+        "total_fat": "8g",
+        "saturated_fat": "1g",
+        "fiber": "2g",
+        "sugar": "3g",
+        "protein": "12g",
+        "potassium": "370mg",
+        "cholesterol": "30mg",
+        "sodium": "550mg",
+        "carbohydrates": "36g"
+      }
+    },
+    {
+      "id": 9,
+      "dish_name": "Tofu Stir Fry",
+      "coverImage": "book-9.png",
+      "nutrition": {
+        "time_up": "2025-04-05T10:40:00Z",
+        "calories": 330,
+        "total_fat": "14g",
+        "saturated_fat": "2g",
+        "fiber": "5g",
+        "sugar": "5g",
+        "protein": "17g",
+        "potassium": "690mg",
+        "cholesterol": "0mg",
+        "sodium": "420mg",
+        "carbohydrates": "32g"
+      }
+    },
+    {
+      "id": 10,
+      "dish_name": "Pancakes with Syrup",
+      "coverImage": "book-10.png",
+      "nutrition": {
+        "time_up": "2025-04-05T10:45:00Z",
+        "calories": 450,
+        "total_fat": "12g",
+        "saturated_fat": "3g",
+        "fiber": "2g",
+        "sugar": "20g",
+        "protein": "8g",
+        "potassium": "250mg",
+        "cholesterol": "55mg",
+        "sodium": "600mg",
+        "carbohydrates": "68g"
+      }
+    },
+    {
+      "id": 11,
+      "dish_name": "Egg Fried Noodles",
+      "coverImage": "book-11.png",
+      "nutrition": {
+        "time_up": "2025-04-05T10:50:00Z",
+        "calories": 490,
+        "total_fat": "16g",
+        "saturated_fat": "3g",
+        "fiber": "4g",
+        "sugar": "3g",
+        "protein": "20g",
+        "potassium": "440mg",
+        "cholesterol": "80mg",
+        "sodium": "750mg",
+        "carbohydrates": "55g"
+      }
+    },
+    {
+      "id": 12,
+      "dish_name": "Caesar Salad",
+      "coverImage": "book-12.png",
+      "nutrition": {
+        "time_up": "2025-04-05T10:55:00Z",
+        "calories": 360,
+        "total_fat": "22g",
+        "saturated_fat": "5g",
+        "fiber": "3g",
+        "sugar": "2g",
+        "protein": "14g",
+        "potassium": "400mg",
+        "cholesterol": "50mg",
+        "sodium": "580mg",
+        "carbohydrates": "18g"
+      }
+    },
+    {
+      "id": 13,
+      "dish_name": "Smoothie Bowl",
+      "coverImage": "book-13.png",
+      "nutrition": {
+        "time_up": "2025-04-05T11:00:00Z",
+        "calories": 320,
+        "total_fat": "9g",
+        "saturated_fat": "2g",
+        "fiber": "6g",
+        "sugar": "18g",
+        "protein": "10g",
+        "potassium": "800mg",
+        "cholesterol": "5mg",
+        "sodium": "180mg",
+        "carbohydrates": "40g"
+      }
+    },
+    {
+      "id": 14,
+      "dish_name": "Chicken Curry with Rice",
+      "coverImage": "book-14.png",
+      "nutrition": {
+        "time_up": "2025-04-05T11:05:00Z",
+        "calories": 610,
+        "total_fat": "24g",
+        "saturated_fat": "6g",
+        "fiber": "5g",
+        "sugar": "4g",
+        "protein": "28g",
+        "potassium": "560mg",
+        "cholesterol": "85mg",
+        "sodium": "940mg",
+        "carbohydrates": "58g"
+      }
+    },
+    {
+      "id": 15,
+      "dish_name": "Banh Mi",
+      "coverImage": "book-15.png",
+      "nutrition": {
+        "time_up": "2025-04-05T11:10:00Z",
+        "calories": 470,
+        "total_fat": "18g",
+        "saturated_fat": "4g",
+        "fiber": "3g",
+        "sugar": "6g",
+        "protein": "20g",
+        "potassium": "390mg",
+        "cholesterol": "45mg",
+        "sodium": "800mg",
+        "carbohydrates": "52g"
+      }
+    },
+    {
+      "id": 16,
+      "dish_name": "Shrimp Spring Rolls",
+      "coverImage": "book-16.png",
+      "nutrition": {
+        "time_up": "2025-04-05T11:15:00Z",
+        "calories": 260,
+        "total_fat": "5g",
+        "saturated_fat": "1g",
+        "fiber": "2g",
+        "sugar": "3g",
+        "protein": "14g",
+        "potassium": "350mg",
+        "cholesterol": "65mg",
+        "sodium": "430mg",
+        "carbohydrates": "28g"
+      }
+    },
+    {
+      "id": 17,
+      "dish_name": "BBQ Pork Ribs",
+      "coverImage": "book-17.png",
+      "nutrition": {
+        "time_up": "2025-04-05T11:20:00Z",
+        "calories": 640,
+        "total_fat": "38g",
+        "saturated_fat": "13g",
+        "fiber": "1g",
+        "sugar": "12g",
+        "protein": "36g",
+        "potassium": "470mg",
+        "cholesterol": "120mg",
+        "sodium": "1020mg",
+        "carbohydrates": "30g"
+      }
+    },
+    {
+      "id": 18,
+      "dish_name": "Tom Yum Soup",
+      "coverImage": "book-18.png",
+      "nutrition": {
+        "time_up": "2025-04-05T11:25:00Z",
+        "calories": 280,
+        "total_fat": "10g",
+        "saturated_fat": "3g",
+        "fiber": "2g",
+        "sugar": "4g",
+        "protein": "15g",
+        "potassium": "430mg",
+        "cholesterol": "50mg",
+        "sodium": "870mg",
+        "carbohydrates": "22g"
+      }
+    },
+    {
+      "id": 19,
+      "dish_name": "Chocolate Cake",
+      "coverImage": "book-19.png",
+      "nutrition": {
+        "time_up": "2025-04-05T11:30:00Z",
+        "calories": 540,
+        "total_fat": "28g",
+        "saturated_fat": "11g",
+        "fiber": "3g",
+        "sugar": "38g",
+        "protein": "6g",
+        "potassium": "310mg",
+        "cholesterol": "75mg",
+        "sodium": "480mg",
+        "carbohydrates": "58g"
+      }
+    },
+    {
+      "id": 20,
+      "dish_name": "Omelette with Veggies",
+      "coverImage": "book-20.png",
+      "nutrition": {
+        "time_up": "2025-04-05T11:35:00Z",
+        "calories": 290,
+        "total_fat": "20g",
+        "saturated_fat": "5g",
+        "fiber": "2g",
+        "sugar": "2g",
+        "protein": "17g",
+        "potassium": "410mg",
+        "cholesterol": "210mg",
+        "sodium": "350mg",
+        "carbohydrates": "5g"
+      }
+    }
+  ]
+  

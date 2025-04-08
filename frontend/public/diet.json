@@ -1,0 +1,33 @@
+[
+    {
+        "id": "maintain_diet", 
+        "diet": "maintain Diet",
+        "weekly_weight_change": 0,
+        "calories": 2500,
+        "protein": 150,
+        "carbs": 300,
+        "fat": 70,
+        "fiber": 30
+    },
+    {
+        "id": "lose_weight_diet", 
+        "diet": "lose weight",
+        "weekly_weight_change": -0.5,
+        "calories": 2000,
+        "protein": 150,
+        "carbs": 250,
+        "fat": 50,
+        "fiber": 35
+    },
+    {
+        "id": "gain_weight_diet",
+        "diet": "gain weight",
+        "weekly_weight_change": 0.5,
+        "calories": 3000,
+        "protein": 150,
+        "carbs": 350,
+        "fat": 90,
+        "fiber": 25
+    }
+
+]
