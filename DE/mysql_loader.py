@@ -29,7 +29,7 @@ cursor.execute(
         sugar FLOAT,
         protein FLOAT,
         fiber FLOAT,
-        img_src VARCHAR(255)
+        img_url VARCHAR(255)
     )
     '''
 )
@@ -39,7 +39,7 @@ cursor.execute(f'TRUNCATE TABLE {food_table}')
 for _, row in df.iterrows():
     cursor.execute(
         f'''
-        INSERT INTO {food_table} (food_name, serving_size, calories, fat, sugar, protein, fiber, img_src) VALUES
+        INSERT INTO {food_table} (food_name, serving_size, calories, fat, sugar, protein, fiber, img_url) VALUES
         ("{row['food_name']}", "{row['serving_size']}", {row['calories']}, 
         {row['fat']}, {row['sugar']}, {row['protein']}, {row['fiber']}, "{row['azure_img_src']}")
         '''

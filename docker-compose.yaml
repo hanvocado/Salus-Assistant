@@ -13,7 +13,20 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
 
-  foodloader:
+  spring-server:
+    build: ./spring-server
+    depends_on:
+      - mysql
+    environment:
+      environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
+    ports:
+      - "8085:8080"
+
+  food-loader:
     build: ./DE
     depends_on:
       - mysql
