@@ -23,6 +23,7 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_PORT: 3306
+      AI_HOST: ai-model
     ports:
       - "8085:8080"
 
