@@ -54,11 +54,18 @@ public class SalusService {
     @NonFinal
     @Value("${upload.dir}")
     String uploadDir;
+
+    @Value("${ai-services.host}")
+    String aiServicesHost;
+
+    @Value("${spring-server.host}")
+    String springServerHost;
+
     public Boolean imageToFood(MultipartFile file) throws IOException {
         String filename = UUID.randomUUID().toString() + ".jpg";
         Path path = Paths.get(uploadDir, filename);
         file.transferTo(new File(path.toAbsolutePath().toString()));
-        String imageUrl = "http://192.168.124.91:8080/app/upload/img/" + filename;
+        String imageUrl = String.format("http://%s:8080/app/upload/img/%s", springServerHost, filename);
 
         //send imgUrl to AI
         long index = getIndexFromImage(imageUrl);
@@ -86,7 +93,8 @@ public class SalusService {
 
         HttpEntity<Map<String, String>> request = new HttpEntity<>(body, headers);
 
-        String apiUrl = "http://192.168.124.254:8080/api/foodrecognition";
+        String apiUrl = String.format("http://%s:8080/api/foodrecognition", aiServicesHost);
+
         ResponseEntity<String> response = restTemplate.postForEntity(apiUrl, request, String.class);
 
         try{
@@ -113,7 +121,8 @@ public class SalusService {
         PlanningRequest body = profileUserMapper.toPlanningRequest(profileUser);
         HttpEntity<PlanningRequest> request = new HttpEntity<>(body, headers);
 
-        String apiUrl = "http://192.168.124.254:8080/api/planning";
+        String apiUrl = String.format("http://%s:8080/api/planning", aiServicesHost);
+
         ResponseEntity<PlanningResponse> response = restTemplate.postForEntity(apiUrl, request, PlanningResponse.class);
 
         try{
@@ -154,7 +163,8 @@ public class SalusService {
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<SummaryRequest> request = new HttpEntity<>(summaryRequest, headers);
 
-        String apiUrl = "http://192.168.124.254:8080/api/compare";
+        String apiUrl = String.format("http://%s:8080/api/compare", aiServicesHost);
+
         ResponseEntity<String> response = restTemplate.postForEntity(apiUrl, request, String.class);
 
         try{
@@ -194,7 +204,7 @@ public class SalusService {
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Plan> request = new HttpEntity<>(plan, headers);
 
-        String apiUrl = "http://192.168.124.254:8080/api/suggestion";
+        String apiUrl = String.format("http://%s:8080/api/suggestion", aiServicesHost);
         ResponseEntity<String> response = restTemplate.postForEntity(apiUrl, request, String.class);
         try{
             JsonNode root = objectMapper.readTree(response.getBody());
@@ -207,9 +217,6 @@ public class SalusService {
                 for (JsonNode idNode : foodArray) {
                     foodList.add(foodRepository.findFoodById(idNode.asLong()).orElseThrow(() -> new AppException(ErrorCode.FOOD_NOTEXISTED)));
                 }
-            }
-            for (var food : foodList) {
-                food.setImageUrl("http://192.168.124.91:8080/app/upload/img/20d85049-cf8d-4904-90af-219c4d6db4b4.jpg");
             }
             return foodList;
         }
