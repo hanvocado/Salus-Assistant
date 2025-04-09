@@ -37,8 +37,8 @@ def create_table():
 
 def insert_food_data():
     cursor.execute(f"SELECT COUNT(*) FROM {food_table}")
-    df = get_csv_df('data', 'food_data.csv')
     if cursor.fetchone()[0] == 0:
+        df = get_csv_df('data', 'food_data.csv')
         for i, row in df.iterrows():
             cursor.execute(
                 f'''
