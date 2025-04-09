@@ -33,7 +33,7 @@ upload:
   dir: upload/img/
 
 ai-services:
-  host: ${AI_HOST}
+  host: ${AI_HOST:ai-model}
 
 spring-server:
   host: ${SERVER_HOST:spring-server}

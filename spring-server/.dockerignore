@@ -1,0 +1,29 @@
+upload
+
+# Maven output
+target/
+
+# IDE & editor files
+*.iml
+.idea/
+.vscode/
+.settings/
+.classpath
+.project
+.factorypath
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Logs & temp files
+*.log
+*.tmp
+*.swp
+
+src/test/
+.env
