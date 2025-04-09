@@ -51,13 +51,16 @@ public class SalusService {
     //another service
     FoodHistoryService foodHistoryService;
     EmailService emailService;
+    
     @NonFinal
     @Value("${upload.dir}")
     String uploadDir;
 
+    @NonFinal
     @Value("${ai-services.host}")
     String aiServicesHost;
 
+    @NonFinal
     @Value("${spring-server.host}")
     String springServerHost;
 
