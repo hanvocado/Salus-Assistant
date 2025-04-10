@@ -22,7 +22,7 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_PORT: 3306
-      AI_HOST: ai-model
+      AI_HOST: ai
     ports:
       - "8085:8080"
 
@@ -34,4 +34,11 @@ services:
       - mysql
     env_file:
       - ./DE/load/.env
+  ai:
+    build:
+      context: ./SalusAI
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8080"
     
+
