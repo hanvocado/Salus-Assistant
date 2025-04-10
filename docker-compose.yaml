@@ -18,26 +18,20 @@ services:
     depends_on:
       - mysql
     environment:
-      environment:
       MYSQL_HOST: mysql
       MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_PORT: 3306
+      AI_HOST: ai-model
     ports:
       - "8085:8080"
 
   food-loader:
-    build: ./DE
+    build:
+      context: ./DE
+      dockerfile: load/Dockerfile
     depends_on:
       - mysql
-    restart: "no"
-    volumes:
-      - ./DE/food_data.csv:/app/food_data.csv
-  ai-model:
-    build: 
-      context: ./SalusAI
-      dockerfile: Dockerfile
-    ports:
-      - "8081:8080"
-  
-
+    env_file:
+      - ./DE/load/.env
+    

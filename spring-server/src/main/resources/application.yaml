@@ -31,3 +31,9 @@ jwt:
   signerKey: "b4ISo6+PT1fY8eppQ564SXabONN945cjuPYa0mTOmPrThHVxEnH7+xxE5RFJCqtk"
 upload:
   dir: upload/img/
+
+ai-services:
+  host: ${AI_HOST:ai-model}
+
+spring-server:
+  host: ${SERVER_HOST:spring-server}
