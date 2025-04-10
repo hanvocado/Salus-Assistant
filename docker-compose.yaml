@@ -18,7 +18,6 @@ services:
     depends_on:
       - mysql
     environment:
-      environment:
       MYSQL_HOST: mysql
       MYSQL_USER: root
       MYSQL_PASSWORD: root
@@ -30,8 +29,9 @@ services:
   food-loader:
     build:
       context: ./DE
-      dockerfile: /load/Dockerfile
+      dockerfile: load/Dockerfile
     depends_on:
       - mysql
     env_file:
       - ./DE/load/.env
+    
