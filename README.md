@@ -2,7 +2,7 @@
 
 **Salus** means *health* in Latin — and that’s exactly what we aim to promote with **Salus Assistant**.
 
-This project focuses on **Vietnamese culinary items**, with *732 authentic dishes, drinks, and condiments*, providing nutritional insights and intelligent suggestions using a full-stack application. Whether you're tracking calories and nutrition intake, or learning more about Vietnamese cuisine, Salus is here to help.
+This project focuses on **Vietnamese culinary items**, with *700+ authentic dishes, desserts, drinks, and condiments*, providing nutritional insights and intelligent suggestions using a full-stack application. Whether you're tracking calories and nutrition intake, or learning more about Vietnamese cuisine, Salus is here to help.
 
 ---
 
@@ -25,6 +25,10 @@ This project focuses on **Vietnamese culinary items**, with *732 authentic dishe
 
 - ✉️ **Morning Summary Email**  
   Receive a morning email summarizing your previous day’s meals, giving feedback and motivation.
+
+
+> **Note:** The figures we provide are for reference only and may not be completely accurate.  
+> The differences can vary depending on the actual portion size and the ingredients that are used.
 
 ---
 
