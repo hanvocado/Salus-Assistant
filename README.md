@@ -46,25 +46,10 @@ This project focuses on **Vietnamese culinary items**, with *700+ authentic dish
 
 ## 🧑‍💻 Team Contributions
 
-- **Nguyen Quoc Huy**: Frontend Engineer
+- **Nguyen Quoc Huy**: Frontend Developer
 
-- **Ho Vu Thanh Binh**: Backend Engineer
+- **Ho Vu Thanh Binh**: Backend Developer
 
 - **Nguyen Minh Quang**: Prompt Engineer
 
 - **Nguyen Thi Ngoc Han**: Data Engineer
-
----
-
-## 📦 Setup & Deployment
-
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/hanvocado/Salus-Assistant.git
-    cd Salus-Assistant
-    ```
-
-2. Build and run using Docker Compose:
-    ```bash
-    docker-compose up --build
-    ```
